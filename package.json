@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node sever",
+    "start": "node server",
     "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
     "heroku-postbuild": "cd client && npm install && npm run build",
@@ -19,5 +19,6 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.10.0"
-  }
+  },
+  "proxy": ""
 }

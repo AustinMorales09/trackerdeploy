@@ -11,7 +11,7 @@ const Exercise = (props) => {
       <td>{props.exercise.duration}</td>
       <td>{props.exercise.date.substring(0,10)}</td>
       <td>
-        <Link to={"/edit/" + props.exercise._id}>edit</Link>|{" "}
+        <Link to={BACKEND_URL + "/edit/" + props.exercise._id}>edit</Link>|{" "}
         <a 
         href=" "
         onClick={() =>{props.deleteExercise(props.exercise._id)}}
@@ -32,7 +32,7 @@ export default class ExercisesList extends Component {
     };
   }
   componentDidMount(){
-    axios.get(BACKEND_URL + 'exercises/')
+    axios.get(BACKEND_URL + '/exercises/')
       .then(response => {
         this.setState({
           exercises: response.data
@@ -44,7 +44,7 @@ export default class ExercisesList extends Component {
       })
   }
   deleteExercise(id) {  
-    axios.delete(BACKEND_URL + 'exercises/'+id)  
+    axios.delete(BACKEND_URL + '/exercises/'+id)  
     .then(res => console.log(res.data)); 
     this.setState({  
     exercises: this.state.exercises.filter(exercise => exercise._id !== id)  
